@@ -1,6 +1,6 @@
-import { User } from "../../entities/user";
-import { IUsersRepository } from "../../repositories/IUsersRepository";
-import { ICreateUserRequest } from "./CreateUserRequest";
+import { User } from '../../entities/user';
+import { IUsersRepository } from '../../repositories/IUsersRepository';
+import { ICreateUserRequest } from './CreateUserRequest';
 
 type CreateUserResponse = User;
 
@@ -9,7 +9,7 @@ export class CreateUserUseCase {
 
   async execute(data: ICreateUserRequest): Promise<CreateUserResponse> {
     if (!data.name || !data.email || !data.password) {
-      throw new Error("Missing data");
+      throw new Error('Missing data');
     }
 
     const userAlreadyExists = await this.usersRepository.findByEmail(
@@ -17,7 +17,7 @@ export class CreateUserUseCase {
     );
 
     if (userAlreadyExists) {
-      throw new Error("User already exists");
+      throw new Error('User already exists');
     }
 
     const user = new User(data);
