@@ -1,7 +1,7 @@
 import { User } from '../../entities/user';
 import { IUsersRepository } from '../../repositories/IUsersRepository';
 
-type GetUserResponse = User[];
+type GetUserResponse = Omit<User, 'password'>[];
 
 export class GetUserUseCase {
   constructor(private usersRepository: IUsersRepository) {}

@@ -12,8 +12,15 @@ export class UsersRepository implements IUsersRepository {
     return user;
   }
 
-  async getAll(): Promise<User[]> {
-    const users = await prisma.user.findMany();
+  async getAll(): Promise<Omit<User, 'password'>[]> {
+    const users = await prisma.user.findMany({
+      select: {
+        id: true,
+        name: true,
+        email: true,
+        password: false,
+      },
+    });
     return users;
   }
 

@@ -14,7 +14,7 @@ export class InMemoryUserRepository implements IUsersRepository {
     }
   }
 
-  async getAll(): Promise<User[]> {
+  async getAll(): Promise<Omit<User, 'password'>[]> {
     const usersList = [
       {
         id: v4(),
