@@ -6,7 +6,8 @@
     "forceConsistentCasingInFileNames": true,
     "strict": false,
     "strictPropertyInitialization": false,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "outDir": "dist/"
   },
   "include": ["src/**/*.ts"],
   "exclude": ["node_modules", "**.spec.ts"]
