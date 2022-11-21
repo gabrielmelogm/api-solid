@@ -1,6 +1,6 @@
-import { User } from "../../entities/user";
-import { prisma } from "../../providers/prisma";
-import { IUsersRepository } from "../IUsersRepository";
+import { User } from '../../entities/user';
+import { prisma } from '../../providers/prisma';
+import { IUsersRepository } from '../IUsersRepository';
 
 export class UsersRepository implements IUsersRepository {
   async findByEmail(email: string): Promise<User | null> {
@@ -10,6 +10,11 @@ export class UsersRepository implements IUsersRepository {
       },
     });
     return user;
+  }
+
+  async getAll(): Promise<User[]> {
+    const users = await prisma.user.findMany();
+    return users;
   }
 
   async create(user: User): Promise<User> {

@@ -1,13 +1,13 @@
 import { User } from '../../entities/user';
-import { IGetUsersRepository } from '../../repositories/IGetUsersRepository';
+import { IUsersRepository } from '../../repositories/IUsersRepository';
 
 type GetUserResponse = User[];
 
 export class GetUserUseCase {
-  constructor(private usersRepository: IGetUsersRepository) {}
+  constructor(private usersRepository: IUsersRepository) {}
 
   async execute(): Promise<GetUserResponse> {
-    const users = await this.usersRepository.get();
+    const users = await this.usersRepository.getAll();
     return users;
   }
 }
