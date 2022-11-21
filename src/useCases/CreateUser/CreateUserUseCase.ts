@@ -1,6 +1,6 @@
 import { User } from "../../entities/user";
 import { IUsersRepository } from "../../repositories/IUsersRepository";
-import { ICreateUserRequest } from "./CreateUserDTO";
+import { ICreateUserRequest } from "./CreateUserRequest";
 
 type CreateUserResponse = User;
 
