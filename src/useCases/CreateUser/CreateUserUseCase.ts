@@ -8,6 +8,10 @@ export class CreateUserUseCase {
   constructor(private usersRepository: IUsersRepository) {}
 
   async execute(data: ICreateUserRequest): Promise<CreateUserResponse> {
+    if (!data.name || !data.email || !data.password) {
+      throw new Error("Missing data");
+    }
+
     const userAlreadyExists = await this.usersRepository.findByEmail(
       data.email
     );
