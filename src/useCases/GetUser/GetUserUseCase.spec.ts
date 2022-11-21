@@ -1,4 +1,3 @@
-import { describe, expect, it } from 'vitest';
 import { InMemoryUserRepository } from '../../repositories/inMemory/inMemoryUsersRepository';
 import { GetUserUseCase } from './GetUserUseCase';
 
